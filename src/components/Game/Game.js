@@ -15,11 +15,7 @@ function Game() {
   const [guesses, setGuesses] = React.useState([]);
 
   function handleSumbitGuess(tentativeGuess) {
-    const nextGuess = {
-      value: tentativeGuess,
-      id: Math.random(),
-    };
-    setGuesses([...guesses, nextGuess]);
+    setGuesses([...guesses, tentativeGuess]);
   }
   return (
     <>
