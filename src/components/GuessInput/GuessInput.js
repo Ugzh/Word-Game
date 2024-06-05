@@ -1,6 +1,7 @@
 import React from "react";
+import GameOverBanner from "../GameOverBanner/GameOverBanner";
 
-function GuessInput({ handleSumbitGuess }) {
+function GuessInput({ handleSumbitGuess, guesses, answer }) {
   const [tentativeGuess, setTentativeGuess] = React.useState("");
 
   function handleSumbit(event) {
@@ -25,6 +26,7 @@ function GuessInput({ handleSumbitGuess }) {
           }}
         ></input>
       </form>
+      <GameOverBanner value={guesses} answer={answer} />
     </div>
   );
 }
