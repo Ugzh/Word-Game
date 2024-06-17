@@ -1,15 +1,13 @@
 import React from "react";
-import GameOverBanner from "../GameOverBanner/GameOverBanner";
 
-function GuessInput({ handleSumbitGuess, guesses, answer }) {
-  const [tentativeGuess, setTentativeGuess] = React.useState("");
+function GuessInput() {
+  const [guess, setGuess] = React.useState("");
 
   function handleSumbit(event) {
     event.preventDefault();
-    handleSumbitGuess(tentativeGuess);
-    setTentativeGuess("");
+    console.log({ guess });
+    setGuess("");
   }
-
   return (
     <div>
       <form className="guess-input-wrapper" onSubmit={handleSumbit}>
@@ -18,15 +16,14 @@ function GuessInput({ handleSumbitGuess, guesses, answer }) {
           required
           type="text"
           id="guess-input"
-          value={tentativeGuess}
+          value={guess}
           pattern="[A-Za-z]{5}"
           title="You must write 5 letters words"
           onChange={(e) => {
-            setTentativeGuess(e.target.value.toUpperCase());
+            setGuess(e.target.value.toUpperCase());
           }}
         ></input>
       </form>
-      <GameOverBanner value={guesses} answer={answer} />
     </div>
   );
 }
